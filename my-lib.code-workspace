@@ -1,0 +1,28 @@
+{
+  "folders": [
+    {
+      "name": "@worthman/docs",
+      "path": "apps/docs",
+    },
+    {
+      "name": "@worthman/playground",
+      "path": "playground",
+    },
+    {
+      "name": "@worthman/utils",
+      "path": "packages/utils",
+    },
+    {
+      "name": "@worthman/ui",
+      "path": "packages/ui",
+    },
+    {
+      "name": "@worthman/hooks",
+      "path": "packages/hooks",
+    },
+    {
+      "name": "@worthman/directives",
+      "path": "packages/directives",
+    },
+  ],
+}

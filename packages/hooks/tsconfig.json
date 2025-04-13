@@ -1,0 +1,3 @@
+{
+  "extends": "@worthman/typescript-config/base.json"
+}
