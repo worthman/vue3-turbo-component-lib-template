@@ -13,7 +13,7 @@ hero:
       link: /en/guide/
     - theme: alt
       text: View on GitHub
-      link: https://gitee.com/to-be-determined/vue3-turbo-component-lib-template
+      link: https://github.com/worthman/vue3-turbo-component-lib-template
 
 features:
   - icon: 🛠️

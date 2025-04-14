@@ -5,12 +5,12 @@
   "packageManager": "pnpm@9.15.0",
   "author": "worthman",
   "license": "MIT",
-  "homepage": "https://gitee.com/to-be-determined/vue3-turbo-component-lib-template",
+  "homepage": "https://github.com/worthman/vue3-turbo-component-lib-template",
   "repository": {
     "type": "git",
-    "url": "https://gitee.com/to-be-determined/vue3-turbo-component-lib-template"
+    "url": "https://github.com/worthman/vue3-turbo-component-lib-template"
   },
-  "bugs": "https://gitee.com/to-be-determined/vue3-turbo-component-lib-template/issues",
+  "bugs": "https://github.com/worthman/vue3-turbo-component-lib-template/issues",
   "keywords": [
     "component library template",
     "component library",

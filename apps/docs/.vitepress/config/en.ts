@@ -19,7 +19,7 @@ export const en = defineConfig({
         items: [
           {
             text: 'Changelog',
-            link: 'https://gitee.com/to-be-determined/vue3-turbo-component-lib-template/blob/master/CHANGELOG.md',
+            link: 'https://github.com/worthman/vue3-turbo-component-lib-template/blob/master/CHANGELOG.md',
           },
           // {
           //   text: 'Contribute',
@@ -56,7 +56,7 @@ export const en = defineConfig({
     socialLinks: [
       {
         icon: 'github',
-        link: 'https://gitee.com/to-be-determined/vue3-turbo-component-lib-template',
+        link: 'https://github.com/worthman/vue3-turbo-component-lib-template',
       },
     ],
   },
