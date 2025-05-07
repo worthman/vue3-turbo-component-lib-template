@@ -4,3 +4,4 @@ packages:
   - 'packages/lint-configs/*'
   - 'playground'
   - 'build'
+  - 'test'

@@ -1,5 +1,5 @@
 const babel = require('@rollup/plugin-babel'); // Babel 转换插件
-const terser = require('@rollup/plugin-terser'); // 代码压缩插件
+// const terser = require('@rollup/plugin-terser'); // 代码压缩插件
 const { nodeResolve } = require('@rollup/plugin-node-resolve'); // 解析 node_modules 中的模块
 const json = require('@rollup/plugin-json'); // 处理 JSON 文件
 const esbuild = require('rollup-plugin-esbuild').default; // esbuild 快速的 JavaScript/TypeScript 转译器
@@ -26,14 +26,24 @@ const getPlugins = (_pkg, options = {}) =>
       preferConst: options.babel ? false : true,
     }),
     nodeResolve(),
-    esbuild(),
+    esbuild({
+      exclude: [],
+      sourceMap: true,
+      loaders: {
+        '.vue': 'ts',
+      },
+      define: {
+        'process.env.NODE_ENV': JSON.stringify('production'),
+      },
+      treeShaking: true,
+      legalComments: 'eof',
+    }),
     options.babel &&
       babel({
         babelHelpers: 'bundled',
         presets: ['@babel/preset-env'],
         extensions: ['.js', '.ts'],
       }),
-    options.minify && terser(),
     options.dts && dts(),
   ].filter(Boolean);
 
