@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress';
+import { components } from '../../zh/components';
 
 export const zh = defineConfig({
   lang: 'zh-Hans',
@@ -36,8 +37,9 @@ export const zh = defineConfig({
       {
         text: '组件（@worthman/ui）',
         items: [
-          { text: 'Button 按钮', link: '/packages/ui/button' },
-          { text: 'Dialog 对话框', link: '/packages/ui/dialog' },
+          ...components,
+          // { text: 'Button 按钮', link: '/packages/ui/button' },
+          // { text: 'Dialog 对话框', link: '/packages/ui/dialog' },
         ],
       },
       {

@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress';
+import { components } from '../../en/components';
 
 export const en = defineConfig({
   lang: 'en-US',
@@ -35,10 +36,7 @@ export const en = defineConfig({
       },
       {
         text: 'Components (@worthman/ui)',
-        items: [
-          { text: 'Button', link: 'en/packages/ui/button' },
-          { text: 'Dialog', link: 'en/packages/ui/dialog' },
-        ],
+        items: [...components],
       },
       {
         text: 'Hooks (@worthman/hooks)',

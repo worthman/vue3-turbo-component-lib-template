@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>在线抽奖及随机点名系统</title>
+    <style>
+        /* 新增标题样式 */
+        .header {
+            text-align: center;
+            margin: 50px 0;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #4CAF50;
+        }
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin: 0;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+ 
+        /* 调整数字字号 */
+        .number-item > div:first-child {
+            font-size: 30px;  /* 字号从18px加大到30px */
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+ 
+        /* 其他保持原有样式不变 */
+        body { /* ...原有样式 */ }
+        .container { /* ...原有样式 */ }
+        .number-item { /* ...原有样式 */ }
+        /* ...其余原有样式 */
+    </style>
+</head>
+<body>
+    <!-- 新增标题 -->
+    <div class="header">
+        <h1>在线抽奖及随机点名系统</h1>
+    </div>
+     
+    <!-- 增加4个空行 -->
+    <div style="margin-bottom: 200px;"></div>
+ 
+    <!-- 原有容器保持不变 -->
+    <div class="container" id="numberContainer"></div>
+     
+    <!-- 其余部分保持原样 -->
+    <div class="controls">
+        <!-- ...原有控制组件 -->
+    </div>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+ 
+        .container {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+ 
+        .number-item {
+            text-align: center;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+ 
+        input[type="checkbox"] {
+            transform: scale(1.5);
+            margin-top: 8px;
+        }
+ 
+        .selected {
+            background-color: #4CAF50;
+            color: white;
+            border-color: #45a049;
+        }
+ 
+        .controls {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+ 
+        input[type="number"] {
+            width: 120px;
+            padding: 10px;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+        }
+ 
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+ 
+        button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+ 
+        .selected-count {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+ 
+        .count-control {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="numberContainer"></div>
+     
+    <div class="controls">
+        <div>
+            <label>选择范围：</label>
+            <input type="number" id="start" min="1" max="32" value="1">
+            <span>至</span>
+            <input type="number" id="end" min="1" max="32" value="32">
+        </div>
+        <div class="count-control">
+            <label>随机选择数量：</label>
+            <input type="number" id="randomCount" min="1" value="1" style="width: 80px;">
+            <button onclick="randomSelect()">执行随机</button>
+        </div>
+        <div>
+            <button onclick="clearAll()">清空选择</button>
+            <button onclick="drawLottery()">开始抽奖</button>
+        </div>
+        <div>
+            <span>已选择 <span id="selectedCount" class="selected-count">0</span> 个号码</span>
+        </div>
+    </div>
+ 
+    <script>
+        // 初始化数字和多选框
+        function initNumbers() {
+            const container = document.getElementById('numberContainer');
+            for (let i = 1; i <= 32; i++) {
+                const div = document.createElement('div');
+                div.className = 'number-item';
+                div.innerHTML = `
+                    <div>${i}</div>
+                    <input type="checkbox" value="${i}" id="num${i}">
+                `;
+                div.querySelector('input').addEventListener('change', updateSelection);
+                container.appendChild(div);
+            }
+        }
+ 
+        // 更新选择状态
+        function updateSelection() {
+            this.parentElement.classList.toggle('selected', this.checked);
+            document.getElementById('selectedCount').textContent = 
+                document.querySelectorAll('input[type="checkbox"]:checked').length;
+        }
+ 
+        // 智能随机选择
+        function randomSelect() {
+            const start = parseInt(document.getElementById('start').value) || 1;
+            const end = parseInt(document.getElementById('end').value) || 32;
+            let wantCount = parseInt(document.getElementById('randomCount').value) || 1;
+ 
+            // 输入验证
+            if (start > end) {
+                alert("起始号码不能大于结束号码！");
+                return;
+            }
+ 
+            // 计算可用号码总数
+            const totalNumbers = end - start + 1;
+            if (totalNumbers < 1) {
+                alert("无效的号码范围！");
+                return;
+            }
+ 
+            // 自动修正选择数量
+            wantCount = Math.min(Math.max(1, wantCount), totalNumbers);
+ 
+            // 生成候选号码池
+            const pool = Array.from({length: totalNumbers}, (_, i) => start + i);
+             
+            // 清空当前选择
+            clearAll();
+ 
+            // 执行随机选择
+            for (let i = 0; i < wantCount; i++) {
+                const randomIndex = Math.floor(Math.random() * pool.length);
+                const num = pool.splice(randomIndex, 1)[0];
+                const checkbox = document.getElementById(`num${num}`);
+                checkbox.checked = true;
+                checkbox.dispatchEvent(new Event('change'));
+            }
+ 
+            // 自动更新数量输入框
+            document.getElementById('randomCount').value = wantCount;
+        }
+ 
+        // 清空选择
+        function clearAll() {
+            document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = false;
+                checkbox.dispatchEvent(new Event('change'));
+            });
+        }
+ 
+        // 执行抽奖
+        function drawLottery() {
+            const selected = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'));
+            if (selected.length === 0) {
+                alert("请先选择至少一个号码！");
+                return;
+            }
+ 
+            // 随机闪烁效果
+            let count = 0;
+            const maxIterations = 40;
+            const highlight = setInterval(() => {
+                selected.forEach(cb => cb.parentElement.classList.remove('selected'));
+                const randomIndex = Math.floor(Math.random() * selected.length);
+                selected[randomIndex].parentElement.classList.add('selected');
+                if (++count >= maxIterations) {
+                    clearInterval(highlight);
+                    const winner = selected[randomIndex].value;
+                    alert(`🎉 中奖号码：${winner}号！`);
+                }
+            }, 100);
+        }
+ 
+        // 初始化页面
+        window.onload = initNumbers;
+    </script>
+</body>
+</html>

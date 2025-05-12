@@ -42,7 +42,8 @@
     "preinstall": "npx only-allow pnpm",
     "postinstall": "turbo run build",
     "prepare": "husky install",
-    "rename-pkg": "bash ./scripts/rename-package.sh"
+    "rename-pkg": "bash ./scripts/rename-package.sh",
+    "gen": "pnpm run -C cli gen"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.12",
@@ -59,6 +60,7 @@
     "@worthman/utils": "workspace:*",
     "eslint": "^9.20.1",
     "gh-pages": "^6.3.0",
+    "gulp-run": "^1.7.1",
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3",
     "minimist": "^1.2.8",
@@ -67,6 +69,7 @@
     "stylelint": "^16.14.1",
     "turbo": "^2.4.2",
     "typescript": "^5.7.3",
+    "unbuild": "^3.5.0",
     "vue": "^3.5.13"
   },
   "engines": {

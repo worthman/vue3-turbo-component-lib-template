@@ -9,6 +9,10 @@
       "path": "playground",
     },
     {
+      "name": "@worthman/cli",
+      "path": "cli",
+    },
+    {
       "name": "@worthman/utils",
       "path": "packages/utils",
     },
