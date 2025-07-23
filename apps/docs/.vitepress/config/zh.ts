@@ -1,3 +1,11 @@
+/*
+ * @Author: 'worthman' renth3@asiainfo.com
+ * @Date: 2025-05-12 10:23:24
+ * @LastEditors: 'worthman' renth3@asiainfo.com
+ * @LastEditTime: 2025-07-23 17:34:26
+ * @FilePath: \vue3-turbo-component-lib-template\apps\docs\.vitepress\config\zh.ts
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 import { defineConfig } from 'vitepress';
 import { components } from '../../zh/components';
 
@@ -12,7 +20,7 @@ export const zh = defineConfig({
       { text: '首页', link: '/' },
       { text: '组件', link: '/packages/ui/button' },
       { text: '工具', link: '/packages/utils/string' },
-      { text: 'Playground', link: '/' },
+      { text: 'Playground', link: '/packages/playground' },
       // { text: '其他', link: '/markdown-examples' },
       // { text: '博客', link: 'https://huangmingfu.github.io/my-blog' },
       {
