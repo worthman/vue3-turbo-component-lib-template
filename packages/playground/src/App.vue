@@ -1,52 +1,37 @@
+<!--
+ * @Author: 'worthman' renth3@asiainfo.com
+ * @Date: 2025-04-16 16:08:52
+ * @LastEditors: 'worthman' renth3@asiainfo.com
+ * @LastEditTime: 2025-07-23 15:01:06
+ * @FilePath: \vue3-turbo-component-lib-template\packages\playground\src\App.vue
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 <script setup>
-import { watchEffect, ref } from 'vue';
+import { watchEffect, ref, watch } from 'vue';
+
+// 调试日志
+console.log('App.vue: Initializing');
 import { Repl, useStore, useVueImportMap } from '@vue/repl';
 import Monaco from '@vue/repl/monaco-editor';
 
-function setVH() {
-  document.documentElement.style.setProperty('--vh', window.innerHeight + `px`)
-}
-
-window.addEventListener('resize', setVH)
-setVH()
-
-// retrieve some configuration options from the URL
-const query = new URLSearchParams(location.search);
-
-const {
-  importMap: builtinImportMap,
-  vueVersion,
-  productionMode,
-} = useVueImportMap({
-  // specify the default URL to import Vue runtime from in the sandbox
-  // default is the CDN link from jsdelivr.com with version matching Vue's version
-  // from peerDependency
-  runtimeDev: 'cdn link to vue.runtime.esm-browser.js',
-  runtimeProd: 'cdn link to vue.runtime.esm-browser.prod.js',
-  serverRenderer: 'cdn link to server-renderer.esm-browser.js',
-});
-
+const { importMap: builtinImportMap, vueVersion, productionMode } = useVueImportMap();
 const store = useStore(
   {
-    // pre-set import map
     builtinImportMap,
     vueVersion,
-    // starts on the output pane (mobile only) if the URL has a showOutput query
-    showOutput: ref(query.has('showOutput')),
-    // starts on a different tab on the output pane if the URL has a outputMode query
-    // and default to the "preview" tab
-    outputMode: ref(query.get('outputMode') || 'preview'),
+    showOutput: ref(false),
+    outputMode: ref('preview'),
   },
-  // initialize repl with previously serialized state
-  location.hash,
+  '#eNp9kUFLwzAUx7/KM5cqzBXR0+gGKgP1oKKCl1xG99ZlpklIXuag9Lv7krK5w9it7//7v/SXthP3zo23EcVEVKH2yhEEpOhm0qjWWU/QgccV9LDytoWCq4U00tTWBII2NDBN/LJ4Qq0tfFuvlxfFlTRVORzHB/FA2Dq9IOQJoFrfzLouL/d9VfKUU2VcJNhet3aJeioFcymgZFiVR/tiJCjw61eqGW+CNWzepX0pats6pdG/OVKsJ8UEMklswXa/LzkjH3G0z+s11j8n8k3YpUyKd48B/RalODBa+AZpwPPPV9zx8wGyfdTcPgM/MFgdk+NQe4hmydpHvWz7nL+/Ms1XmO8ITdhfKommZp/7UvA/eTxz9X/d2/Fd3pOmF/0fEx+nNQ==',
 );
-
-// persist state to URL hash
 watchEffect(() => history.replaceState({}, '', store.serialize()));
 
-// use a specific version of Vue
-vueVersion.value = '3.2.8';
-// production mode is enabled
+// 深度观察store状态变化
+watch(store, (newStore, oldStore) => {
+  console.log('Store changed:', newStore);
+}, { deep: true });
+vueVersion.value = '3.5.13';
+// 尝试禁用生产模式来解决只读属性问题
 productionMode.value = true;
 </script>
 
@@ -56,8 +41,10 @@ productionMode.value = true;
     :editor="Monaco"
     :showCompileOutput="true"
     :auto-resize="true"
-    :clear-console="false"
-    @keydown.ctrl.s.prevent
-    @keydown.meta.s.prevent
+    splitDirection="vertical"
+    :showCode="true"
+    :showTabs="true"
+    :editorOptions="{ minimap: { enabled: true } }"
+    style="width: 100vw;height: 100vh;"
   />
 </template>
