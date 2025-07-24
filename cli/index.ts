@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { mainEntry } from './src'
+import { mainEntry } from './src';
 
-mainEntry()
+mainEntry();

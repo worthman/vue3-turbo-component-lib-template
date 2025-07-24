@@ -7,7 +7,7 @@
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <script setup>
-import { watchEffect, ref, watch } from 'vue';
+import { ref, watch, watchEffect } from 'vue';
 
 // 调试日志
 console.log('App.vue: Initializing');
@@ -27,9 +27,13 @@ const store = useStore(
 watchEffect(() => history.replaceState({}, '', store.serialize()));
 
 // 深度观察store状态变化
-watch(store, (newStore, oldStore) => {
-  console.log('Store changed:', newStore);
-}, { deep: true });
+watch(
+  store,
+  (newStore) => {
+    console.log('Store changed:', newStore);
+  },
+  { deep: true },
+);
 vueVersion.value = '3.5.13';
 // 尝试禁用生产模式来解决只读属性问题
 productionMode.value = true;
@@ -39,12 +43,12 @@ productionMode.value = true;
   <Repl
     :store="store"
     :editor="Monaco"
-    :showCompileOutput="true"
+    :show-compile-output="true"
     :auto-resize="true"
-    splitDirection="vertical"
-    :showCode="true"
-    :showTabs="true"
-    :editorOptions="{ minimap: { enabled: true } }"
-    style="width: 100vw;height: 100vh;"
+    split-direction="vertical"
+    :show-code="true"
+    :show-tabs="true"
+    :editor-options="{ minimap: { enabled: true } }"
+    style="width: 100vw; height: 100vh"
   />
 </template>

@@ -1,12 +1,12 @@
 <template>
-  <VDialog v-model:open="open">
+  <TDialog v-model:open="open">
     <div>弹窗测试2222</div>
-  </VDialog>
+  </TDialog>
   <button @click="open = true">弹窗</button>
 </template>
 
 <script setup lang="ts">
-import { VDialog } from '@worthman/ui';
+import { TDialog } from '@worthman/ui';
 import { ref } from 'vue';
 const open = ref(false);
 </script>

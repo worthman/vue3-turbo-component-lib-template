@@ -1,4 +1,4 @@
-import { ComponentInfo } from '../domain/component-info'
+import { ComponentInfo } from '../domain/component-info';
 
 /**
  * .vue 文件模板
@@ -21,8 +21,8 @@ defineProps(${lowCamelName}Props)
 .${lineNameWithPrefix} {
 }
 </style>
-`
-}
+`;
+};
 
 /**
  * .tsx 文件模板
@@ -47,8 +47,8 @@ export default defineComponent({
     )
   }
 })
-`
-}
+`;
+};
 
 /**
  * types.ts 文件模板
@@ -60,14 +60,14 @@ export const ${lowCamelName}Props = {
 } as const
 
 export type ${upCamelName}Props = ExtractPropTypes<typeof ${lowCamelName}Props>
-`
-}
+`;
+};
 
 /**
  * 组件入口 index.ts 文件模板
  */
 export const indexTemplate = (componentInfo: ComponentInfo): string => {
-  const { upCamelName, lineName, lineNameWithPrefix, type } = componentInfo
+  const { upCamelName, lineName, lineNameWithPrefix, type } = componentInfo;
 
   return `import ${upCamelName} from './src/${type === 'tsx' ? lineName : lineName + '.' + type}'
 import { App } from 'vue'
@@ -78,8 +78,8 @@ ${upCamelName}.install = (app: App): void => {
 }
 
 export default ${upCamelName}
-`
-}
+`;
+};
 
 /**
  * scss 文件模板
@@ -91,9 +91,8 @@ export const scssTemplate = (lineNameWithPrefix: string): string => {
 
 @include b('${lineNameWithPrefix}') {
 }
-`
-}
-
+`;
+};
 
 export const mdTemplate = (componentInfo: ComponentInfo) => {
   return `
@@ -128,8 +127,8 @@ export const mdTemplate = (componentInfo: ComponentInfo) => {
 | 插槽名 | 说明 | 参数 |
 |  ----  | ----  | ----  |
 |  |  |  |
-`
-}
+`;
+};
 
 export const demoTemplate = (lineNameWithPrefix: string) => {
   return `<template>
@@ -141,6 +140,5 @@ export const demoTemplate = (lineNameWithPrefix: string) => {
 
 <style scoped lang="scss">
 </style>
-`
-}
-
+`;
+};

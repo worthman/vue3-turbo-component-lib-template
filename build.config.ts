@@ -28,9 +28,9 @@ export default defineBuildConfig({
         '@vue/compiler-core',
         'csstype',
         '@babel/types',
-        '@babel/parser'
-      ]
-    }
+        '@babel/parser',
+      ],
+    },
   },
   // outDir: 'build/dist',
   // 设置为 false 避免因警告而退出

@@ -9,12 +9,10 @@
  * 一个全局的类型声明文件.d.ts写入：/// <reference types="@worthman/ui/global.d.ts" />
  * 类似于：/// <reference types="vite/client" /> 具体可参考playground下的env.d.ts
  */
-declare module 'vue' {
-  // GlobalComponents for Volar
-  export interface GlobalComponents {
-    VButton: (typeof import('@worthman/ui'))['VButton'];
-    VDialog: (typeof import('@worthman/ui'))['VDialog'];
-  }
+// ... existing code ...
+export interface GlobalComponents {
+  TButton: (typeof import('@worthman/ui'))['TButton'];
+  TDialog: (typeof import('@worthman/ui'))['TDialog'];
 }
-
+// ... existing code ...
 export {};

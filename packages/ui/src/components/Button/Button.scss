@@ -1,6 +1,6 @@
 @use 'sass:color';
 
-.v-button {
+.t-button {
   $types: (
     primary: #409eff,
     success: #67c23a,
@@ -23,6 +23,8 @@
   white-space: nowrap;
   cursor: pointer;
   outline: none;
+  background-color: #fff;
+  border: 1px solid #dcdfe6;
   border-radius: 4px;
   transition: 0.1s;
 
@@ -50,8 +52,72 @@
     opacity: 0.5;
   }
 
+  &.is-loading {
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+
   &.is-round {
     border-radius: 20px;
+  }
+
+  &.is-circle {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border-radius: 50%;
+
+    &.t-button--small {
+      width: 24px;
+      height: 24px;
+    }
+
+    &.t-button--large {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  // 文本按钮
+  &.is-text {
+    color: #606266;
+    background: transparent;
+    border: none;
+
+    &.is-bg {
+      background-color: #f5f7fa;
+    }
+
+    &:hover {
+      background-color: #f5f7fa;
+    }
+  }
+
+  // 链接按钮
+  &.is-link {
+    color: #409eff;
+    text-decoration: underline;
+    background: transparent;
+    border: none;
+
+    &:hover {
+      color: #66b1ff;
+    }
+  }
+
+  // 加载图标
+  .loading-icon {
+    margin-right: 5px;
+    animation: rotate 1s linear infinite;
+  }
+
+  // 图标
+  i {
+    margin-right: 5px;
+  }
+
+  .button-text {
+    margin-left: 5px;
   }
 
   // 类型
@@ -69,7 +135,7 @@
       }
     }
 
-    &.is-plain.v-button--#{$type} {
+    &.is-plain.t-button--#{$type} {
       color: $color;
       background: color.mix(#fff, $color, 90%);
       border-color: color.mix(#fff, $color, 60%);
@@ -79,6 +145,35 @@
         background: $color;
         border-color: $color;
       }
+    }
+
+    &.is-text.t-button--#{$type} {
+      color: $color;
+      background: transparent;
+      border: none;
+
+      &.is-bg {
+        background-color: color.mix(#fff, $color, 90%);
+      }
+
+      &:hover {
+        background-color: color.mix(#fff, $color, 80%);
+      }
+    }
+
+    &.is-link.t-button--#{$type} {
+      color: $color;
+      text-decoration: underline;
+    }
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
     }
   }
 }

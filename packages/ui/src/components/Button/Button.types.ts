@@ -6,6 +6,15 @@ export interface ButtonProps {
   size?: ButtonSize;
   disabled?: boolean;
   round?: boolean;
+  plain?: boolean;
+  text?: boolean;
+  bg?: boolean;
+  link?: boolean;
+  loading?: boolean;
+  loadingIcon?: string;
+  icon?: string;
+  circle?: boolean;
+  autoInsertSpace?: boolean;
 }
 
 export interface ButtonEmits {

@@ -1,5 +1,5 @@
 <template>
-  <rth-overview />
+  <t-overview />
 </template>
 
 <script lang="ts" setup></script>

@@ -1,3 +1,12 @@
+<!--
+ * @Author: 'worthman' renth3@asiainfo.com
+ * @Date: 2025-04-11 14:52:36
+ * @LastEditors: 'worthman' renth3@asiainfo.com
+ * @LastEditTime: 2025-07-24 10:44:32
+ * @FilePath: \vue3-turbo-component-lib-template\packages\ui\README.md
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+
 # @worthman/ui
 
 Vue 3 组件库，基于 Vue 3 + TypeScript 构建的现代化组件库。
@@ -56,19 +65,19 @@ app.mount('#app');
 
 ```vue
 <template>
-  <VButton @click="open = true">弹窗</VButton>
-  <VButton type="primary">按钮</VButton>
-  <VButton type="success">按钮</VButton>
-  <VButton type="warning">按钮</VButton>
-  <VButton type="danger">按钮</VButton>
-  <VButton type="info">按钮</VButton>
-  <VDialog v-model:open="open">
+  <TButton @click="open = true">弹窗</TButton>
+  <TButton type="primary">按钮</TButton>
+  <TButton type="success">按钮</TButton>
+  <TButton type="warning">按钮</TButton>
+  <TButton type="danger">按钮</TButton>
+  <TButton type="info">按钮</TButton>
+  <TDialog v-model:open="open">
     <div>弹窗测试2222</div>
-  </VDialog>
+  </TDialog>
 </template>
 
 <script setup lang="ts">
-import { VButton, VDialog } from '@worthman/ui';
+import { TButton, TDialog } from '@worthman/ui';
 import { ref } from 'vue';
 const open = ref(false);
 </script>

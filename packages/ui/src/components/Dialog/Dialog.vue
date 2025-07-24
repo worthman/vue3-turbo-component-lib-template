@@ -11,7 +11,7 @@
 import type { DialogEmits, DialogProps } from './Dialog.types';
 
 defineOptions({
-  name: 'VDialog',
+  name: 'TDialog',
 });
 
 defineProps<DialogProps>();

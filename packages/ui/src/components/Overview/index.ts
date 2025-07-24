@@ -1,7 +1,7 @@
 import { withInstall } from '~/_utils';
 import Overview from './Overview.vue';
 
-export const VOverview = withInstall(Overview);
-export default VOverview;
+export const TOverview = withInstall(Overview);
+export default TOverview;
 
 export * from './Overview.types';

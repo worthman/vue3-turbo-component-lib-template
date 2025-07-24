@@ -1,17 +1,15 @@
 <template>
   <div class="demo-button">
-    <VButton>按钮</VButton>
-    <VButton type="primary">按钮</VButton>
-    <VButton type="success">按钮</VButton>
-    <VButton type="warning">按钮</VButton>
-    <VButton type="danger">按钮</VButton>
-    <VButton type="info">按钮</VButton>
+    <TButton>按钮</TButton>
+    <TButton type="primary">按钮</TButton>
+    <TButton type="success">按钮</TButton>
+    <TButton type="warning">按钮</TButton>
+    <TButton type="danger">按钮</TButton>
+    <TButton type="info">按钮</TButton>
   </div>
 </template>
 
-<script setup lang="ts">
-// import { VButton } from '@worthman/ui';
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 .demo-button {

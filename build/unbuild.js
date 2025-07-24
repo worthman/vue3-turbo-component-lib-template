@@ -1,16 +1,12 @@
-import { defineBuildConfig } from 'unbuild'
+import { defineBuildConfig } from 'unbuild';
 
 export default defineBuildConfig({
-  entries: [
-    './src/index'
-  ],
+  entries: ['./src/index'],
   outDir: './dist',
   declaration: true,
   rollup: {
     emitCJS: true,
   },
-  externals: [
-    'vue'
-  ],
+  externals: ['vue'],
   clean: true,
-})
+});
