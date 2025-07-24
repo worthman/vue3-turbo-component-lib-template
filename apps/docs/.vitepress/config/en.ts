@@ -12,7 +12,7 @@ export const en = defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Component', link: '/packages/ui/button' },
       { text: 'Tool', link: '/packages/utils/string' },
-      { text: 'Playground', link: '/' },
+      { text: 'Playground', link: '/packages/playground' },
       // { text: 'Others', link: '/markdown-examples' },
       // { text: 'Blog', link: 'https://huangmingfu.github.io/my-blog' },
       {
