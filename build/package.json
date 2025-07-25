@@ -6,7 +6,7 @@
   "scripts": {
     "build": "gulp clean && gulp",
     "build:gulp": "gulp -f gulpfile.js",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+    "clean": "rimraf .turbo node_modules dist"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.26.9",

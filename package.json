@@ -35,7 +35,7 @@
     "lint:format": "prettier --write \"**/*.{js,jsx,cjs,ts,tsx,mjs,mts,md,vue,scss,css,less,html,json}\"",
     "lint:style": "stylelint \"**/*.{css,scss,less}\" --fix",
     "lint:all": "pnpm run lint:eslint && pnpm run lint:style && pnpm run lint:format",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist && turbo run clean",
+    "clean": "turbo run clean && rimraf .turbo node_modules dist",
     "changeset:version": "pnpm changeset && pnpm changeset version",
     "deps:update": "pnpm update -r --latest",
     "deps:check": "pnpm outdated -r",
@@ -70,7 +70,8 @@
     "turbo": "^2.4.2",
     "typescript": "^5.7.3",
     "unbuild": "^3.5.0",
-    "vue": "^3.5.13"
+    "vue": "^3.5.13",
+    "rimraf": "^5.0.5"
   },
   "engines": {
     "node": ">=18",
