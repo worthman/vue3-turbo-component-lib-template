@@ -1,0 +1,14 @@
+const l=`<template>
+  <input v-focus type="text" value="123" />
+</template>
+
+<script setup lang="ts">
+import { vFocus } from '@worthman/directives';
+<\/script>
+
+<style scoped>
+input {
+  all: revert;
+}
+</style>
+`;export{l as T};

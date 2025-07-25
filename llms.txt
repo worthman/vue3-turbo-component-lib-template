@@ -1,0 +1,26 @@
+# 组件库模板文档
+
+> 一个基于 Vue3 的组件库和工具集
+
+基于 Turborepo + Vue 3.5 + TypeScript 的现代组件库模板
+
+## Table of Contents
+
+- [快速开始](/vue3-turbo-component-lib-template/zh/guide.md)
+- [字符串工具](/vue3-turbo-component-lib-template/zh/packages/utils/string.md)
+- [组件总览](/vue3-turbo-component-lib-template/zh/packages/ui/overview.md)
+- [Button](/vue3-turbo-component-lib-template/en/packages/ui/button.md)
+- [Button 按钮](/vue3-turbo-component-lib-template/zh/packages/ui/button.md)
+- [Dialog](/vue3-turbo-component-lib-template/en/packages/ui/dialog.md)
+- [Dialog 对话框](/vue3-turbo-component-lib-template/zh/packages/ui/dialog.md)
+- [Overview](/vue3-turbo-component-lib-template/en/packages/ui/overview.md)
+- [Quick Start](/vue3-turbo-component-lib-template/en/guide.md)
+- [String Utilities](/vue3-turbo-component-lib-template/en/packages/utils/string.md)
+- [Tree tree](/vue3-turbo-component-lib-template/en/packages/ui/tree.md)
+- [Tree tree](/vue3-turbo-component-lib-template/zh/packages/ui/tree.md)
+- [Untitled](/vue3-turbo-component-lib-template/en.md)
+- [Untitled](/vue3-turbo-component-lib-template/zh.md)
+- [useCounter](/vue3-turbo-component-lib-template/en/packages/hooks/useCounter.md)
+- [useCounter](/vue3-turbo-component-lib-template/zh/packages/hooks/useCounter.md)
+- [vFocus](/vue3-turbo-component-lib-template/en/packages/directives/vFocus.md)
+- [vFocus](/vue3-turbo-component-lib-template/zh/packages/directives/vFocus.md)

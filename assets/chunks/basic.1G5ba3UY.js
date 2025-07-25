@@ -1,0 +1,1 @@
+import{d as t,a2 as s,k as c,o,c as a,_ as n}from"./framework.Qw9YW2RS.js";const _={mounted(e){e.focus()}},r={type:"text",value:"123"},p=t({__name:"basic",setup(e){return(u,i)=>s((o(),a("input",r,null,512)),[[c(_)]])}}),d=n(p,[["__scopeId","data-v-fcca2696"]]);export{d as default};
