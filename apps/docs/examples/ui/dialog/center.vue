@@ -1,8 +1,8 @@
 <template>
   <div class="dialog-demo">
-    <TButton @click="open = true">点击打开对话框</TButton>
-    <TDialog v-model:open="open" title="提示" :show-footer="true">
-      <span>这是一段内容</span>
+    <TButton @click="open = true">居中布局</TButton>
+    <TDialog v-model:open="open" title="提示" width="50%" center :show-footer="true">
+      <span>居中布局的对话框内容</span>
     </TDialog>
   </div>
 </template>
